@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="struts2" namespace="/web"   extends="struts-default">
+		 <action name="initpage" class="userAction" method="initpage">
+			<result name="success">/index.html</result>
+		</action>
+	<!-- 	
+		<action name="logincheckaction" class="userAction" method="logincheckaction">
+			定义处理结果与视图资源之间的关系
+			<result name="success" type="redirect">initpage.action </result>
+		</action>
+		      -->
+	</package>
+
+  <package name="ajax_json" namespace="/web"  extends="json-default" >
+  <!-- 本处的id就是ajax url的值，class引用了Spring 配置Action的id-->
+     <action name="logincheckaction" class="userAction" method="logincheckaction">
+   <!--    <result name="success" type="json">currentUser</result> -->
+      <result type="json"></result>
+    </action>      
+  </package>
+
+</struts>

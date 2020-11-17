@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.card {
+	margin: 50px;
+	padding: 30px;
+	width: 600px;
+	height: 375px;
+	border: 2px black solid;
+	font-size: 20px;
+	line-height: 30px;
+	position: relative;
+}
+
+.company {
+	
+}
+.company input{
+	width:250px;
+}
+
+.name {
+	text-align: center;
+	position: relative;
+	top: 80px;
+}
+
+.name input {
+	text-align: center;
+	font-size: 40px;
+	width: 250px
+}
+
+.position {
+	text-align: center;
+	position: relative;
+	top: 100px;
+}
+.position input{
+	text-align:center
+}
+
+.info {
+	position: absolute;
+	bottom: 30px;
+	line-height: 35px
+}
+
+.halfline {
+	
+}
+
+.halfline input {
+	width: 200px;
+}
+
+.wholeline {
+	
+}
+.wholeline input{
+	width:510px
+}
+
+.notes {
+	width:600px;
+	font-size:25px;
+	margin-left: 50px;
+	position:relative;
+}
+.notes input{
+	position:absolute;
+	right:0px;
+	padding:5px 20px 5px 20px;
+	font-size:20px;
+}
+.loaddiv{
+	border:black dotted 2px;
+	padding:10px; 
+	width:400px;
+	margin-left:50px;
+}

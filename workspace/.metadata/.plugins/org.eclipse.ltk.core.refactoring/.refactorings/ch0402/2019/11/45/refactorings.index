@@ -1,0 +1,12 @@
+1573237172473	Move 'mysql-connector-java-5.0.3-bin.jar' to 'lib'
+1573237273324	Move 2 resources to 'lib'
+1573237279646	Delete element
+1573238165170	Rename resource 'cardmanage'
+1573238196419	Move compilation unit
+1573239324910	Delete element
+1573244218542	Move 'ajax.js' to 'js'
+1573244223805	Delete element
+1573244496263	Move 'js' to 'WebContent'
+1573269000192	Rename resource 'cs'
+1573269057598	Rename resource 'Style.css'
+1573269118467	Rename resource 'Style.css'

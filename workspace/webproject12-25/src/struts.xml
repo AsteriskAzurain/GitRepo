@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="struts2" extends="struts-default" namespace="/">
+		<action name="logincheck" class="LoginAction">
+			<result name="success">index.jsp</result>
+			<result name="error">login.jsp</result>
+			<result name="back">back.jsp</result>
+			
+		</action>
+		<action name="registercheck" class="RegisterAction">
+			<result name="success">register.jsp</result>
+			<result name="error">register.jsp</result>
+			<result name="input">register.jsp</result>
+		</action>
+		
+	<action name="backdelete" class="DeleteAction">
+			<result name="success" type="redirect">/JSP/backshowAll.jsp</result>
+			<result name="error" type="redirect">/JSP/backshowAll.jsp</result>
+		</action>
+		<action name="backupdate" class="UpdateAction">
+			<result name="success">backshowAll.jsp</result>
+			<result name="error">backshowAll.jsp</result>
+		</action>
+			
+	<action name="backadd" class="AddAction">
+			<result name="success" type="redirect">/JSP/backshowAll.jsp</result>
+			<result name="error" type="redirect">/JSP/backinsert.jsp</result>
+			<result name="input">backinsert.jsp</result>
+		</action>
+		<action name="backshowall" class="ShowAllAction">
+			<result name="success">backshowAll.jsp</result>
+		
+		</action>
+	    	</package>
+	   <package name="json" extends="json-default" namespace="/">
+		<action name="queryAllStudent" class="ShowAllAction" method="queryAllStudent" >
+			<result type="json"></result>
+		</action>
+	 	<action name="queryPartStudent" class="ShowAllAction" method="querySomeStudent">
+			<result type="json"></result>
+		</action> 
+		<action name="queryPartCollegeStudent" class="CollegeAction" method="querySomeCollege">
+			<result type="json"></result>
+		</action> 
+		<action name="queryPartCollegeStudent1" class="CollegeAction" method="querySomeCollege1">
+			<result type="json"></result>
+		</action> 
+
+	</package>
+
+</struts>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>某某的HTML</title>
+	<!--（1）h1标题字体颜色为白色、背景颜色为蓝色、居中、四个方向的填充值15px
+	       （2）使文字环绕在图片周围，图片边线：粗细1px,颜色#9999cc，虚线，与周围元素的边界5px
+	       （3）段落格式：字体大小12px，首行缩进两字符、行高1.5倍行距、填充值5px
+	       （4）消除网页内容与浏览器窗口边界间的空白、并设置背景色#ccccff
+	       （5）给两个段落加不同颜色的右边线：3px double red和3px double orange
+	-->
+	<style type="text/css">
+	  h1{
+	    color:white;
+		background-color:blue;
+		text-align:center;
+		padding:15px;
+	    }
+	  img{
+	    float:left;
+	    border:1px  #9999cc dashed;
+		margin: 5px;
+		width:50% ;
+		height:auto;
+	    }
+	  p{
+	    font-size:12px;
+	    text-indent:2em;
+		line-height:1.5;
+		padding:5px;
+	   }
+	 body{
+	    margin:0px;
+		background-color:#ccccff;
+	   }
+	 #p1{
+	    border-right:3px red double ;
+		 }
+	 #p2{
+	    border-right:3px  orange double;
+		 }
+	</style>
+	</head>
+	<body>
+	  <h1>互联网发展起源</h1>
+	  <img src="tea.jsp" >
+	  <p id="p1"> 1969年，为了保障通信联络，美国国防部高级研究计划署ARPA资助建立了世界上第一个分组交换试验网
+	  ARPNET，连接美国四个大学。ARPNET的建成和不断发展标志着计算机网络发展的新纪元。</p>
+	  	  <p id="p2"> 20世纪70年代末到80年代初，计算机网络蓬勃发展，各种各样的计算机网络也应运而生，
+	  	  如MILNET、UYSERNET、BITNET、CSNET等，在网络的规模和数量上都得到很大的发展。一系列网络的建设，
+	  	   产生了不同网络互联的需求，并最终导致了TCP/IP协议的诞生</p>
+	</body>
+ </html>
+

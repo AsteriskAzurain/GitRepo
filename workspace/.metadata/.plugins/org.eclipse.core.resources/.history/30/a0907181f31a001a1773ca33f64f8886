@@ -1,0 +1,701 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>ç«èµä¿¡æ¯ç½</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="layout/plugins/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="layout/style.css" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic"
+	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="layout/js/jquery.js"></script>
+
+<!-- PrettyPhoto start -->
+<link rel="stylesheet"
+	href="layout/plugins/prettyphoto/css/prettyPhoto.css" type="text/css" />
+<script type="text/javascript"
+	src="layout/plugins/prettyphoto/jquery.prettyPhoto.js"></script>
+<!-- PrettyPhoto end -->
+
+<!-- jQuery tools start -->
+<script type="text/javascript"
+	src="layout/plugins/tools/jquery.tools.min.js"></script>
+<!-- jQuery tools end -->
+
+<!-- Calendar start -->
+<link rel="stylesheet" href="layout/plugins/calendar/calendar.css"
+	type="text/css" />
+<script type="text/javascript" src="layout/plugins/calendar/calendar.js"></script>
+<!-- Calendar end -->
+
+<!-- ScrollTo start -->
+<script type="text/javascript"
+	src="layout/plugins/scrollto/jquery.scroll.to.min.js"></script>
+<!-- ScrollTo end -->
+
+<!-- MediaElements start -->
+<link rel="stylesheet"
+	href="layout/plugins/video-audio/mediaelementplayer.css" />
+<script src="layout/plugins/video-audio/mediaelement-and-player.js"></script>
+<!-- MediaElements end -->
+
+<!-- FlexSlider start -->
+<link rel="stylesheet" href="layout/plugins/flexslider/flexslider.css"
+	type="text/css" />
+<script type="text/javascript"
+	src="layout/plugins/flexslider/jquery.flexslider-min.js"></script>
+<!-- FlexSlider end -->
+
+<!-- iButtons start -->
+<link rel="stylesheet"
+	href="layout/plugins/ibuttons/css/jquery.ibutton.css" type="text/css" />
+<script type="text/javascript"
+	src="layout/plugins/ibuttons/lib/jquery.ibutton.min.js"></script>
+<!-- iButtons end -->
+
+<!-- jQuery Form Plugin start -->
+<script type="text/javascript"
+	src="layout/plugins/ajaxform/jquery.form.js"></script>
+<!-- jQuery Form Plugin end -->
+
+<script type="text/javascript" src="layout/js/main.js"></script>
+<script type="text/javascript">
+	jQuery(function() {
+	});
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	function loginCheck(username, password) {
+		$.ajax({
+			type : 'post',
+			url : 'logincheckaction.action',//æ­¤å¤çActionè¦ä¸struts.xmlä¸­çactionçnameå¯¹åº
+			data : "username=" + username + "&password=" + password,
+			// dataType: "json",
+			success : function(data) {
+				console.log(data.reMap);
+				//$('#login').hide();
+				var target = $(this).attr('href');
+				$('.block_popup').hide(500, function() {
+					$('#overlay').hide();
+				});
+				//var obj=eval("("+result+")");
+				//var currentUser=eval("("+obj+")");
+				cuser.textContent = data.reMap.currentUser.username;
+
+				//e.preventDefault();
+				var result = JSON.stringify(data.reMap);
+				//alert(data.reMap.currentUser.username);
+			},
+			error : function(data, e) {
+				console.log(data);
+				//var currentUser = <%=request.getSession().getAttribute("currentUser")%>
+				var info = "ç¨æ·åæå¯ç éè¯¯" + username + password
+				loginresult.innerHTML = info;
+			}
+		});
+	};
+</script>
+<script type="text/javascript">
+	function checkCuser() {
+		var username = decodeURIComponent(getCookie("username"));
+		if (username != "null") {
+			cuser.textContent = username;
+		} else {
+			cuser.textContent = "ç»é"
+		}
+	}
+	function getCookie(name) {
+		var arr = document.cookie.match(new RegExp("(^| )" + name
+				+ "=([^;]*)(;|$)"));
+		if (arr != null) {
+			var params = arr[2]
+			params.replace(/\+/g, " ")
+			return params
+		}
+		return null;
+	}
+</script>
+</head>
+
+<body onload="checkCuser()">
+	<div class="wrapper sticky_footer">
+		<!-- HEADER BEGIN -->
+		<header>
+			<div id="header">
+				<section class="top">
+					<div class="inner">
+						<div class="fr">
+							<div class="block_top_menu">
+								<ul>
+									<li class="current">
+										<div align="right">
+											<a href="#login" class="open_popup" id="cuser">ç»é</a>
+									</li>
+									<script language="javascript">
+										function zhuxiao() {
+											if (confirm("ç¡®å®è¦æ³¨éåï¼")) {
+												alert("å·²æ³¨éã")
+												var username = decodeURIComponent(getCookie("username"));
+												if (username != "null") {
+													delCookie('username');
+													cuser.textContent = "ç»é"
+													location.reload();
+												}
+											} else {
+												alert("æªæ³¨éã")
+											}
+										}
+										function delCookie(name) {
+											var exp = new Date();
+											exp.setTime(exp.getTime() - 1);
+											var cval = decodeURIComponent(getCookie(name));
+											if (cval != null)
+												document.cookie = name + "="
+														+ cval + ";expires="
+														+ exp.toGMTString()
+														+ ";path=/";
+										}
+									</script>
+									<li>
+										<div align="right">
+											<a href="#" onClick="zhuxiao()">æ³¨é</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+				</section>
+				<section class="bottom">
+					<div class="inner">
+						<div id="logo_top">
+							<a href="index.html"><img src="images/logo_top.png"
+								alt="BusinessNews" title="ç«èµä¿¡æ¯ç½" /></a>
+						</div>
+						<div class="block_today_date">
+							<div class="num">
+								<p id="num_top" />
+							</div>
+							<div class="other">
+								<p class="month_year">
+									<span id="month_top"></span>, <span id="year_top"></span>
+								</p>
+								<p id="day_top" class="day" />
+							</div>
+						</div>
+						<div class="fr">
+							<div class="block_languages">
+								<div class="clearboth"></div>
+							</div>
+							<div class="block_search_top">
+								<form action="#">
+									<div class="field">
+										<input type="text" class="w_def_text" title="è¾å¥ä½ æ³æç´¢çåå®¹" />
+									</div>
+									<input type="submit" class="button" value="Search" />
+									<div class="clearboth"></div>
+								</form>
+							</div>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+				</section>
+				<section class="section_main_menu">
+					<div class="inner">
+						<nav class="main_menu">
+							<ul>
+								<li class="current_page_item"><a href="index.html">ä¸»é¡µ</a></li>
+								<li class="big_dropdown" data-content="technology"><a
+									href="volun.html">å¬çå¾é</a></li>
+								<li class="big_dropdown" data-content="business"><a
+									href="c_computer.html">æ¯èµä¿¡æ¯</a></li>
+								<li><a href="blog.html">æ¯èµè®ºå</a></li>
+								<li><a href="typography.html">å³äºæä»¬</a>
+									<ul>
+										<li><a href="accordion.html">æ´å¤ä¿¡æ¯</a></li>
+										<li><a href="pricing_table.html">ä¼ååå¼</a></li>
+										<li><a href="testimonials.html">å±å¿æ è¯­</a></li>
+									</ul></li>
+								<li><a href="contact.html">å å¥æä»¬</a></li>
+							</ul>
+						</nav>
+					</div>
+				</section>
+				<section class="section_big_dropdown">
+					<div class="inner">
+						<div class="block_big_dropdown" data-menu="business">
+							<div class="content">
+								<div class="image">
+									<a href="#" class="pic"><img
+										src="images/pic_big_drop_3.jpg" alt="" /></a>
+									<p>
+										<a href="#">è¿éæ¯ç«ç­æ¥åä¸­çç«èµæ´»å¨ã</a>
+									</p>
+								</div>
+								<div class="line"></div>
+								<div class="image">
+									<a href="#" class="pic"><img
+										src="images/pic_big_drop_4.jpg" alt="" /></a>
+									<p>
+										<a href="#">è¿éæ¯å¿«éæåå­¦ç§ç´ å»çééã</a>
+									</p>
+								</div>
+								<div class="line"></div>
+								<div class="popular_posts">
+									<div class="title">
+										<p>åä¸åä¸</p>
+									</div>
+									<ul>
+										<li><a href="#"><span>01 July, 2019</span>2019ç¬¬å«å±éç¨æ¯å¨å½å¾®è¯¾å¤§èµæ¥åä¸­ï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>âé¿æ²é¶è¡æ¯â2019å¹´æ¹åçåæ°åä¸å¤§èµååæ°ææèµæ¥åä¸­ï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>2019å¹´ç¬¬åä¸å±iCANå½éåæ°åä¸å¤§èµæ¥åä¸­ï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>2019å¹´ç¬¬åä¸å±iCANå½éåæ°åä¸å¤§èµæ¥åä¸­ï¼</a></li>
+									</ul>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+						</div>
+						<div class="block_big_dropdown" data-menu="technology">
+							<div class="content">
+								<div class="image">
+									<a href="#" class="pic"><img
+										src="images/pic_big_drop_5.jpg" alt="" /></a>
+									<p>
+										<a href="#">è¿éææ­£å¨æ¥åçå¿æ¿æ´»å¨ã</a>
+									</p>
+								</div>
+								<div class="line"></div>
+								<div class="image">
+									<a href="#" class="pic"><img
+										src="images/pic_big_drop_6.jpg" alt="" /></a>
+									<p>
+										<a href="#">è¿éæå®ç¾é­å¹çæ´»å¨éé¦ã</a>
+									</p>
+								</div>
+								<div class="line"></div>
+								<div class="popular_posts">
+									<div class="title">
+										<p>å¿æ¿èæåä»¤</p>
+									</div>
+									<ul>
+										<li><a href="#"><span>01 July, 2019</span>éçç«å¨çåæ°åä¸å¤§èµå¿æ¿èæåï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>æ¾³å¤§å©äºåäººæ»å·¥ä¼æåçº¿ä¸è±æå¿æ¿èæåï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>2019ç¬¬ä¸å±#ä¹éæå§è#å¿æ¿èæåï¼</a></li>
+										<li><a href="#"><span>01 July, 2019</span>2019å¤§å­¦çå¿æ¿æå¡è¥¿é¨è®¡åæ­£å¼æåï¼</a></li>
+									</ul>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</header>
+		<!-- HEADER END -->
+
+		<!-- CONTENT BEGIN -->
+		<div id="content" class="right_sidebar">
+			<div class="inner">
+				<div class="general_content">
+					<div class="main_content">
+						<div class="block_special_topic">
+							<div class="type">
+								<p>ä¸é¢</p>
+							</div>
+							<div class="title">
+								<p>è¿æä¸¾åçå½å®¶çº§ç«èµ</p>
+							</div>
+						</div>
+						<div class="separator" style="height: 17px;"></div>
+						<div class="block_home_slider">
+							<div id="home_slider" class="flexslider">
+								<ul class="slides">
+									<li>
+										<div class="slide">
+											<a href="c_en_fzy.html"><img src="images/c_en_fzy_p1.jpg"
+												alt="" width="610" height="292" />
+												<div class="caption">
+													<p class="title">2019å¹´å¨å½é«æ ¡åæ°è±è¯­ææèµ</p>
+													<p>æ¥åæªæ­¢æ¥æï¼2019å¹´11æ20æ¥ ||
+														åèµï¼å¨çº¿ç¥è¯ç«èµå½¢å¼ï¼ç­é¢åæ ¼æä¼ç§å¥è¯ä¹¦ï¼ç°å¨æ¥åæä¸æ¬¡æ¨¡æç­é¢æºä¼ || å³èµï¼å®ç½èå¯å¬ãè¯´ãåæ¯èµ ||
+														ä¸»ååä½ï¼ãæµ·å¤è±è¯­ãæå¿</p></a>
+										</div>
+							</div>
+							</li>
+							<li>
+								<div class="slide">
+									<a href="c_en_ch.html"><img src="images/c_en_ch_p1.jpg"
+										alt="" width="610" height="292" />
+										<div class="caption">
+											<p class="title">2019âå¤ç ç¤¾â¢å½ææ¯âå¨å½è±è¯­æ¼è®²å¤§èµ</p>
+											<p>âéçä¸­å½ç¹è²ç¤¾ä¼ä¸»ä¹è¿å¥æ°æ¶ä»£ï¼å½å®¶åç¤¾ä¼çåå±å¯¹é«ç­æè²çéè¦æ¯ä»¥å¾ä»»ä½æ¶åé½æ´å è¿«åï¼å¯¹ç§å­¦ç¥è¯ååè¶äººæçæ¸´æ±æ¯ä»¥å¾ä»»ä½æ¶åé½æ´å å¼ºçãâæ°æ¶ä»£èµäºæ°ä½¿å½ï¼æ°æ ¼å±å¼å¤æ°ä¸¾æª...</p></a>
+								</div>
+						</div>
+						</li>
+						<li>
+							<div class="slide">
+								<a href="c_cp_lhb.html"><img src="images/c_cp_lhb_p1.jpg"
+									alt="" width="610" height="292" />
+									<div class="caption">
+										<p class="title">2019å¹´å¨å½é«æ ¡è®¡ç®æºè½åææèµ</p>
+										<p>ä¸»ååä½ï¼å¨å½é«ç­å­¦æ ¡è®¡ç®æºæè²ç ç©¶ä¼ || æ¥åæªæ­¢æ¥æï¼2019å¹´11æ15æ¥ ||
+											åè®¾å¤§æ°æ®ç®æ³èµï¼äººå·¥æºè½ç®æ³èµï¼Officeé«çº§åºç¨èµï¼ç¨åºè®¾è®¡èµ4å¤§èµé¡¹ ||
+											å¤§èµéç¥ï¼åæå³é«æ ¡æå¡å¤ï¼ä¸ºè´¯å½»è½å®ä¹ è¿å¹³ä¸»å¸­å¨å ...</p></a>
+							</div>
+					</div>
+					</li>
+					<li>
+						<div class="slide">
+							<a href="c_mt_lhb.html"><img src="images/c_mt_lhb_p1.jpg"
+								alt="" width="610" height="292" />
+								<div class="caption">
+									<p class="title">2019å¹´ç¬¬äºå±åææ¯å¨å½å¤§å­¦çæ°å­¦ç«èµ</p>
+									<p>æ¥åæ¶é´ï¼å³æ¥èµ·è³11æ16æ¥||å¤§èµèæ¯ä¸ºè½å®æè²é¨ãç§æé¨ãä¸­ç§é¢ãèªç¶ç§å­¦åºéä¼èåå¶å®çãå³äºå å¼ºæ°å­¦ç§å­¦ç ç©¶å·¥ä½æ¹æ¡ãï¼å¨é¢æµè¯å¤§å­¦ççæ°å­¦ç¥è¯ãä¿®å»ä¸è½å...</p></a>
+						</div>
+				</div>
+				</li>
+				</ul>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$('#home_slider').flexslider({
+						animation : 'slide',
+						controlNav : true,
+						directionNav : true,
+						animationLoop : true,
+						slideshow : false,
+						useCSS : false
+					});
+
+				});
+			</script>
+		</div>
+		<div class="line_2" style="margin: 34px 0px 28px;"></div>
+		<div class="block_home_col_2"></div>
+		<div class="clearboth"></div>
+		<h3 style="font-size: 16px;">ä¸»è¦èµäº</h3>
+		<div class="line_4" style="margin: -4px 0px 18px;"></div>
+		<div class="block_topic_news">
+			<article class="block_topic_post">
+				<p class="title">
+					<a href="news_post.html">ç¬¬ä¸å±å¨å½å¤§å­¦çåå·¥å®éªå¤§èµ</a>
+				</p>
+				<div class="f_pic">
+					<a href="news_post.html" class="general_pic_hover scale"><img
+						src="images/pic_home_main_news_1.jpg" alt="" /></a>
+				</div>
+				<p class="text">ç»æè²é¨åå­¦å§åä¼å³å®ï¼2019å¹´èåä¸¾åç¬¬ä¸å±å¨å½å¤§å­¦çåå·¥å®éªå¤§èµãå¤§èµä¸»é¢ä¸ºâå¯èªâåå­¦å·¥ç¨å¸âã</p>
+				<div class="info">
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="r_part">
+						<div class="category">
+							<p>
+								<a href="#">åå­¦</a>
+							</p>
+						</div>
+						<a href="#" class="views">200</a>
+					</div>
+				</div>
+			</article>
+			<article class="block_topic_post">
+				<p class="title">
+					<a href="news_post2.html">ç¬¬ä¹å±å¨å½å¤§å­¦çæºæ¢°åæ°å¤§èµ 
+				</p>
+				<div class="f_pic">
+					<a href="news_post2.html" class="general_pic_hover scale"><img
+						src="images/pic_home_main_news_2.jpg" alt="" /></a>
+				</div>
+				<p class="text">ç»æè²é¨æºæ¢°åºç¡è¯¾ç¨æå­¦å§åä¼ç ç©¶ãå³å®èª2019å¹´3æå¯å¨ç¬¬ä¹å±å¨å½å¤§å­¦çæºæ¢°åæ°è®¾è®¡å¤§èµå·¥ä½ã</p>
+				<div class="info">
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="r_part">
+						<div class="category">
+							<p>ä¿¡æ¯ææ¯</p>
+						</div>
+						<a href="#" class="views">199</a>
+					</div>
+				</div>
+			</article>
+			<article class="block_topic_post">
+				<p class="title">
+					<a href="news_post3.html">ç¬¬ä¸å±å¨å½å¤§å­¦çåçµè®¾è®¡å¤§èµ</a>
+				</p>
+				<div class="f_pic">
+					<a href="news_post3.html" class="general_pic_hover scale"><img
+						src="images/pic_home_main_news_3.jpg" alt="" /></a>
+				</div>
+				<p class="text">ç»æè²é¨åçµä¿¡æ¯ç§å­¦ä¸å·¥ç¨å§åä¼å³å®ï¼2019å¹´8æ18æ¥å¨éå²å¤§å­¦ä¸¾åç¬¬ä¸å±å¨å½å¤§å­¦åçµè®¾è®¡ç«èµã</p>
+				<div class="info">
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="r_part">
+						<div class="category">
+							<p>ä¿¡æ¯ææ¯</p>
+						</div>
+						<a href="#" class="views">150</a>
+					</div>
+				</div>
+			</article>
+			<article class="block_topic_post">
+				<p class="title">
+					<a href="news_post4.html">2019å¹´ç¾å½å¤§å­¦çæ°å­¦å»ºæ¨¡ç«èµ</a>
+				</p>
+				<div class="f_pic">
+					<a href="news_post4.html" class="general_pic_hover scale"><img
+						src="images/pic_home_main_news_4.jpg" alt="" /></a>
+				</div>
+				<p class="text">æ¯èµæ¶é´ä¸ºç¾å½ä¸é¨æ¶é´ï¼2019å¹´1æ24æ¥ä¸å5ç¹-1æ28æ¥ä¸å8ç¹ï¼åäº¬æ¶é´æ¯ç¾å½ä¸é¨æ¶é´æ©13ä¸ªå°æ¶ã</p>
+				<div class="info">
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="r_part">
+						<div class="category">
+							<p>æ°å­¦</p>
+						</div>
+						<a href="#" class="views">81</a>
+					</div>
+				</div>
+			</article>
+		</div>
+		<a href="#" class="lnk_all_news fl">å¨é¨ç«èµ</a>
+	</div>
+	</div>
+	<div class="sidebar">
+		<div class="block_popular_posts">
+			<h4>è¿æç«èµ</h4>
+			<div class="article">
+				<div class="pic">
+					<a href="c_cp_wxj.html" class="w_hover"> <img
+						src="images/c_cp_wxj_p1.jpg" alt="" height="46" width="46" /> <span></span>
+					</a>
+				</div>
+				<div class="text">
+					<p class="title">
+						<a href="c_cp_wxj.html">äºèç½ï¼å¨å½å¤§å­¦çåæ°åä¸å¤§èµ</a>
+					</p>
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="icons">
+						<ul>
+							<li><a href="#" class="views">99</a></li>
+							<li><a href="#" class="comments">99</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="line_3"></div>
+			<div class="article">
+				<div class="pic">
+					<a href="c_lt_fzy.html" class="w_hover"> <img
+						src="images/c_lt_fzy_p1.jpg" alt="" height="46" width="46" /> <span></span>
+					</a>
+				</div>
+				<div class="text">
+					<p class="title">
+						<a href="c_lt_fzy.html">å¤§åçµè§èç®ãè¯Â·ä¸­å½ãåé¢è¯å¾é</a>
+					</p>
+					<div class="date">
+						<p>01 July, 2019</p>
+					</div>
+					<div class="icons">
+						<ul>
+							<li><a href="#" class="views">77</a></li>
+							<li><a href="#" class="comments">77</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="line_3"></div>
+			<div class="article">
+				<div class="pic">
+					<a href="c_en_fzy_2.html" class="w_hover"> <img
+						src="images/c_en_fzy_2_p1.jpg" alt="" height="46" width="46" /> <span></span>
+					</a>
+				</div>
+				<div class="text">
+					<p class="title">
+						<a href="c_en_fzy_2.html">2019å¹´ç¬¬äºå±âæ®è¯å¥âå¨å½å¤§å­¦çè±è¯­åä½å¤§èµ</a>
+					</p>
+					<div class="date">
+						<p>01 July, 2012</p>
+					</div>
+					<div class="icons">
+						<ul>
+							<li><a href="#" class="views">55</a></li>
+							<li><a href="#" class="comments">55</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="separator" style="height: 31px;"></div>
+			</div>
+			<div class="line_2"></div>
+		</div>
+		<div class="separator" style="height: 31px;"></div>
+		<div class="block_popular_stuff">
+			<h4>æåæ¬¢è¿ç«èµ</h4>
+			<div class="content">
+				<a href="#" class="view_all">æ¾ç¤ºå¨é¨ç«èµ</a>
+				<div class="media">
+					<a href="images/c_lt_ch_p1.jpg"
+						class="general_pic_hover zoom no_fx" data-rel="prettyPhoto"
+						title="æåæ¬¢è¿ç«èµ"><img src="images/c_lt_ch_p1.jpg" alt=""
+						height="208" width="364" /></a>
+				</div>
+				<p>
+					<a href="c_lt_ch.html">âæ¸ç½æ³âæ¯å¨å½æ¸å»è¯æ­æ£æå¤§èµ </a> <img
+						src="images/icon_photo.gif" alt="" />
+				</p>
+				<p class="date">01 July, 2019</p>
+			</div>
+			<div class="info">
+				<ul>
+					<li class="comments"><a href="#">22</a></li>
+					<li class="views"><a href="#">33</a></li>
+				</ul>
+			</div>
+			<div class="clearboth"></div>
+			<div class="separator" style="height: 31px;"></div>
+			<div class="line_2"></div>
+		</div>
+		<div class="separator" style="height: 31px;"></div>
+		<div class="block_calendar">
+			<h4>æ¥å</h4>
+			<div class="calendar" id="calendar_sidebar"></div>
+			<div class="separator" style="height: 31px;"></div>
+			<div class="line_2"></div>
+			<script type="text/javascript">
+				var today = new Date();
+				var date = today.getFullYear() + '-' + (today.getMonth() + 1)
+						+ '-' + today.getDate();
+				$('#calendar_sidebar').DatePicker(
+						{
+							flat : true,
+							date : date,
+							calendars : 1,
+							starts : 1,
+							locale : {
+								days : [ 'Sunday', 'Monday', 'Tuesday',
+										'Wednesday', 'Thursday', 'Friday',
+										'Saturday', 'Sunday' ],
+								daysShort : [ 'Sun', 'Mon', 'Tue', 'Wed',
+										'Thu', 'Fri', 'Sat', 'Sun' ],
+								daysMin : [ 'S', 'M', 'T', 'W', 'T', 'F', 'S',
+										'S' ],
+								months : [ 'January', 'February', 'March',
+										'April', 'May', 'June', 'July',
+										'August', 'September', 'October',
+										'November', 'December' ],
+								monthsShort : [ 'Jan', 'Feb', 'Mar', 'Apr',
+										'May', 'Jun', 'Jul', 'Aug', 'Sep',
+										'Oct', 'Nov', 'Dec' ],
+								weekMin : 'wk'
+							}
+						});
+			</script>
+		</div>
+		<div class="separator" style="height: 31px;"></div>
+		<div class="clearboth"></div>
+	</div>
+	<div class="clearboth"></div>
+	</div>
+	</div>
+	</div>
+	<!-- CONTENT END -->
+
+	<!-- FOOTER BEGIN -->
+	<footer>
+		<div id="footer">
+			<div class="inner">
+				<div id="logo_bottom">
+					<a href="index.html"><img src="images/logo_bottom.png" alt="" /></a>
+				</div>
+				<div class="block_to_top">
+					<a href="#">è¿åé¡¶é¨</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- FOOTER END -->
+	</div>
+
+	<!-- POPUP BEGIN -->
+	<div id="overlay"></div>
+	<div id="login" class="block_popup">
+		<div class="popup">
+			<a href="#" class="close">Close</a>
+			<div class="content">
+				<div class="title">
+					<p>ç»éç½ç«</p>
+				</div>
+				<div class="form">
+					<form action="logincheckaction.action" name="loginform">
+						<div class="column">
+							<p class="label">ç¨æ·å</p>
+							<div class="field">
+								<input type="text" name="username" />
+							</div>
+						</div>
+						<div class="column">
+							<p class="label">å¯ç </p>
+							<div class="field">
+								<input type="password" name="password" />
+							</div>
+						</div>
+						<div class="column_2">
+							<div class="remember">
+								<div class="checkbox">
+									<input type="checkbox" />
+								</div>
+								<div class="remember_label">
+									<p>è®°ä½å¯ç </p>
+								</div>
+							</div>
+						</div>
+						<div class="column_2">
+							<p class="forgot_pass">
+								<a href="#">å¿è®°å¯ç ?</a>
+							</p>
+						</div>
+						<div class="column button">
+							<a href="#" class="enter"
+								onclick="loginCheck(loginform.username.value,loginform.password.value)"><span>ç»é</span></a>
+						</div>
+						<input type="submit" value="ç»é" />
+
+						<div class="clearboth"></div>
+					</form>
+
+					<a href="registration.html" target="_self">
+						<p style="padding-top: 25px;">æ³¨åæä¸ºæ°ç¨æ·</p>
+					</a>
+					<div style="padding-top: 25px;" id="loginresult"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- POPUP END -->
+</body>
+</html>

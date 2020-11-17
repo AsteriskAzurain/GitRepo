@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CompetitionNews后台管理系统</title>
+<style>
+	body{
+		background-color: #DDF5FA;
+	}
+.nav {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 60px;
+	width: 20%;
+	height: 700px;
+	border-right: #9B9B9B 3px solid;
+	float: left;
+}
+li {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+.content1 {
+
+	float: right;
+	width: 75%;
+	height: 700px;
+	background-color:rgba(255,255,255,0.50);
+}
+.snav li {
+	float: left;
+	padding: 10px;
+
+}
+.snav {
+	font-weight: bold;
+	height: 50px;
+
+}
+.current {
+	font-size: 150%;
+	background: #8A8A8A;
+}
+.current a {
+	color: white;
+}
+.content2 {
+	height: 600px;
+	margin: 20px;
+	margin-top: 0;
+	padding: 10px;
+	border: #8A8A8A solid 2px
+}
+input {
+	font-size: 15px;
+	line-height: 20px;
+}
+.i1 {
+	font-weight: bold;
+	letter-spacing: 3px;
+	padding: 10px 15px;
+	/*margin: 0 100px 0 20px;*/
+	border: #24B9CE solid 1px;
+	color: #24b9ce;
+	background-color: white
+}
+.content3 li {
+	height: 50px;
+	border: grey 1px solid;
+	padding-left: 20px
+}
+.content3 li a {
+	font-size: 15px;
+	line-height: 40px;
+}
+.content3 li a:hover {
+	color: blue
+}
+.lt1 li {
+	height: 60px;
+	border-bottom: grey solid 1px;
+}
+.lt1 li a {
+	margin-left: 30px
+}
+.btn1 {
+	margin: 0 20px;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+	                <script language="javascript">
+									function zhuxiao()
+										{
+											if (confirm("确定要注销吗？")){
+												alert("已注销。");
+											window.location.href="login/lo_gin.html";}
+											else{
+												alert("未注销。")}
+										}
+									</script>
+<div style="float: right"> 欢迎您，管理员。 <a href="#" class="btn1" onClick="zhuxiao()">注销</a></div>
+<header style="margin-top: 40px;margin-left: 20px;margin-bottom: 50px;"> <img src="../images/ms_logo.png" alt="" style="height: 40px"/> <span style="font-size: 30px;vertical-align:top">后台管理系统</span> </header>
+<div class="nav">
+  <ul class="lt1">
+    <li><a href="ms_nav.html">导航栏管理</a></li>
+    <li><a href="ms_cts.html">内容管理</a></li>
+    <li><a href="ms_docs.html">文件管理</a></li>
+    <li><a href="ms_vip.html">会员管理</a></li>
+  </ul>
+</div>
+<div class="content1">
+  <div class="snav">
+    <ul>
+      <li class="current"><a href="#">首页</a></li>
+      <li><a href="ms_adm.html">用户管理</a></li>
+    </ul>
+  </div>
+  <div class="content2">
+<center style="margin:20px; font-size: 30px">欢迎您登陆<b>Competition News</b>后台管理系统</center>
+	  <div style="margin: 40px;text-indent: 2em;">
+	  <h2>竞赛信息网</h2>
+	  <h3>一个致力于搜集赛事信息的网站</h3><p>
+竞赛信息网是一家专门致力于国内外各领域赛事信息搜集与发布的综合性赛事信息讯息平台。网站正式成立于2014年8月，其前身为2013年8月创立的竞赛网，网站创立以来一直以服务于全国大学生、社会竞赛爱好者为己任，目前是全国最大、最全面、最权威的赛事信息和服务承办平台。
+		  </p><p>
+竞赛信息网自创立以来，访问量、浏览量迅速攀升。本网站以最快速度及时更新政府、企业、社会组织发布的各个领域赛事活动，所发布的每一项赛事活动都经过严格审核，全面完整，极具权威性与真实性。截至目前，我们拥有全国多所合作高校资源且合作高校数量不断增加。与多家企业均有密切合作，在为期提供了一个强有力的宣传推广平台的同时，也给了我们一个提升网站品牌、社会影响力的机会。
+	  </p>
+  </div>
+	</div></div>
+</body>
+</html>

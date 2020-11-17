@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+    <!-- 数据源的配置，用户名和密码需要根据实际情况配置 -->
+   <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 驱动 -->
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+		<!-- url -->
+		<property name="url" value="jdbc:sqlserver://192.168.100.172:1433;DatabaseName=group8202"></property>
+		<!-- 用户名 -->
+		<property name="username" value="sa"></property>
+		<!-- 密码 -->
+		<property name="password" value="Ishang123"></property>
+	</bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<!-- 指定数据库方言 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+				org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+    	<!-- hibernate映射文件的引入 -->
+    	<property name="mappingResources">
+    		<list>
+    			<value>javawb/pojo/LoginUser.hbm.xml</value>
+    			<value>javawb/pojo/CollegeUser.hbm.xml</value>
+    			<value>javawb/pojo/CollegeUser1.hbm.xml</value>
+    		</list>
+    	</property>
+    </bean>
+    
+<!--     配置事务管理器 -->
+<!--     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> -->
+<!--     	<property name="sessionFactory" ref="sessionFactory"/> -->
+<!--     </bean> -->
+<!-- 	配置hibernateTemplate -->
+  <bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+
+	<bean id="loginDaoImpl" class="javawb.dao.LoginDaoImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+
+	<bean id="loginService" class="javawb.service.LoginService">
+		<property name="logindao" ref="loginDaoImpl"></property>
+	</bean>
+	
+	
+	<bean id="LoginAction" class="javawb.action.LoginAction">
+		<property name="loginservice" ref="loginService"></property>
+	</bean>
+	<bean id="RegisterAction" class="javawb.action.RegisterAction">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<bean id="AddAction" class="javawb.action.AddAction">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<bean id="DeleteAction" class="javawb.action.DeleteAction">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<bean id="ShowAllAction" class="javawb.action.ShowAllAction">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+    <bean id="UpdateAction" class="javawb.action.UpdateAction">
+        <property name="loginService" ref="loginService"></property>
+    </bean>
+   <!--  <bean id="ShowPartAction" class="javawb.action.ShowPartAction">
+        <property name="loginService" ref="loginService"></property>
+    </bean> -->
+    <!-- 分割线 -->
+    <bean id="CollegeDaoImpl" class="javawb.dao.CollegeDaoImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="CollegeService" class="javawb.service.CollegeService">
+		<property name="collegedaoimpl" ref="CollegeDaoImpl"></property>
+	</bean>
+	<bean id="CollegeAction" class="javawb.action.CollegeAction">
+		<property name="collegeservice" ref="CollegeService"></property>
+	</bean>
+    
+    
+</beans>

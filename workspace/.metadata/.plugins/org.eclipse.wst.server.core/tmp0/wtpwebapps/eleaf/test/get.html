@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./resources/js/jquery.min.js"></script>
+<style type="text/css">
+	* {
+		font-size: 16px;
+		color: #000;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	.content {
+		text-indent: 2rem;
+	}
+
+	table {
+		margin: 1rem;
+		border-collapse: collapse;
+	}
+
+	table, th, td {
+		padding: 0.5rem;
+		border: 1px solid #000;
+	}
+</style>
+<title>查询测试</title>
+</head>
+<body>
+	<h2>查询测试</h2>
+	<input type="submit" value="获取全部" id="get_all">
+	<div id="result"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#get_all").click(function() {
+				$.ajax({
+					url : "http://localhost:8080/eleaf" + "/test/user/getAll",
+					type : "get",
+					dataType : "json",
+					data : {},
+					success : function(response) {
+						var data = response['data'];
+						var html = '';
+						for (var i in data) {
+							html += '<table>\n';
+							for (var attr in data[i]) {
+								html += '<tr>\n'
+								html += ('<td>' + attr + '</td>\n');
+								html += ('<td>' + data[i][attr] + '</td>\n');
+								html += '</tr>\n'
+							}
+							html += '</table>\n'
+						}
+						$("#result").html(html);
+					},
+					error : function() {
+						alert("服务器开小差啦，请稍后再试~");
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

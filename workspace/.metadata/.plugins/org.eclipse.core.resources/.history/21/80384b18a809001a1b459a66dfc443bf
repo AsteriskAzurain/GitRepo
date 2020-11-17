@@ -1,0 +1,12 @@
+package filter;
+
+public class testsplit {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str="219.218.*.*";
+	}
+public void split2Str(String ipstr) {
+	for (String allow : ipstr.replaceAll("\\s", "").split(";")) {
+	}
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="UTF-8"/>
+		<list key="findhistory">
+			<item value="ISO-8859-1"/>
+			<item value="Close"/>
+			<item value="btn-secondary"/>
+			<item value="modal"/>
+			<item value="madal"/>
+			<item value="btn-secondary&quot;&gt;编辑"/>
+			<item value="secondary"/>
+			<item value="se"/>
+			<item value="删除"/>
+			<item value="true"/>
+			<item value="default"/>
+			<item value="primary"/>
+			<item value="info"/>
+			<item value="danger"/>
+			<item value=".input-group-text{display:-ms-flexbox;display:flex;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="UTF-8"/>
+			<item value="btn-danger"/>
+			<item value="btn-warning&quot;&gt;发货"/>
+			<item value="btn-"/>
+			<item value="danger"/>
+			<item value="取消"/>
+			<item value="secondary"/>
+			<item value="default"/>
+			<item value="primary"/>
+			<item value="info"/>
+			<item value="resultcmtlist"/>
+			<item value="Comment"/>
+			<item value="&amp;emsp;"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="192"/>
+		<item key="DIALOG_Y_ORIGIN" value="323"/>
+		<item key="DIALOG_WIDTH" value="285"/>
+		<item key="DIALOG_HEIGHT" value="368"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+</section>

@@ -1,0 +1,38 @@
+package filter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class IPFilter implements Filter {
+	
+	String filterIP;
+
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+		filterIP = fConfig.getInitParameter("IPvalue");
+	}
+	
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		String remoteIP = request.getRemoteAddr();
+		System.out.println(remoteIP);
+		if(!remoteIP.equals(filterIP)) {
+			chain.doFilter(request, response);//放行
+		}else {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("Filter/error.jsp");
+			dispatcher.forward(request, response);
+			
+		}
+
+	}
+
+}

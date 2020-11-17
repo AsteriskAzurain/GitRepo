@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>高校信息</title>
+<link href="../../CSS/university.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="top">
+		<img src="../../project/logo.jpg">
+	</div>
+	<div class="container">
+		<ul class="menu">
+			<li><a href="../index.html">网站首页</a></li>
+			<li><a href="../university.html">高校信息</a></li>
+			<li><a href="../introduce.html">政策解读</a></li>
+			<li><a href="../scoresearch.html">分数查询</a></li>
+			<li><a href="../evaluation.html">选科评测</a></li>
+			<li><a href="../vip.html">VIP服务</a></li>
+		</ul>
+	</div>
+	<div class="left" style="background-color: #0abde3;">
+		<h2>菜单</h2>
+		<ul id="myMenu">
+			<li><a href="#">大学简介</a></li>
+			<li><a href="#">开设专业</a></li>
+			<li><a href="#">招生计划</a></li>
+			<li><a href="#">历年录取数据</a></li>
+			<li><a href="#">历年投档数据</a></li>
+			<li><a href="../university.html">返回主菜单</a></li>
+		</ul>
+		<p>中国人民解放军海军军医大学（The Second Military Medical
+			University），简称海军军医大学（第二军医大学），国家“211工程”、军队“2110工程”和原总后勤部“530工程”重点建设院校，首批国家“双一流”世界一流学科建设高校，军队研究生培养重点建设院校，是军队3所设置研究生院的单位之一，是全国首批博士、硕士学位授予单位和首批开办八年制医学教育的高校，入选教育部“卓越医生教育培养计划”、国家建设高水平大学公派研究生项目、国家生命科学与技术人才培养基地、外军医学留学生培养基地。在沪附属医院有上海长海医院、上海长征医院、东方肝胆外科医院、上海市浦东新区公利医院。
+		</p>
+	</div>
+</body>
+</html>

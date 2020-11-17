@@ -1,0 +1,55 @@
+package filter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class IPFilter implements Filter {
+	
+	String filterIP;
+
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+		filterIP = fConfig.getInitParameter("IPvalue");
+	}
+	
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		String remoteIP = request.getRemoteAddr();
+		System.out.println(remoteIP);
+		if(xt1(remoteIP)) {
+			chain.doFilter(request, response);//放行
+		}else {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("Error.jsp");
+			dispatcher.forward(request, response);
+			
+		}
+
+	}
+	
+	public Boolean xt1(String ipstr) {
+		String[] ips = ipstr.split("\\.");
+		for(String s:ips) {
+			System.out.println(s+'_');
+		}
+		if(ips[0].equals("219")&&ips[1].equals("218")) {return true;}
+		return false;
+	}
+	
+	public void split2Str(String str) {
+		for (String ipstr : str.replaceAll("\\s", "").split(".")) {
+			if (ipstr.indexOf("*") > -1) {
+				String[] ips = ipstr.split("\\.");
+				String[] from = new String[] { "0", "0", "0", "0" };
+				String[] end = new String[] { "255", "255", "255", "255" };
+				List<String> tem = new ArrayList<String>();}}
+	}
+}

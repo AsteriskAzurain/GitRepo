@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="E:\java\workspace\eleaf"/>
+			<item value="E:\Desktop\移动商城\eleaf-master"/>
+			<item value="E:\Desktop\移动商城\eleaf-master (2)"/>
+			<item value="C:\Users\qysx3\Desktop\resource\partner-api-master"/>
+			<item value="C:\Users\qysx3\Desktop\源码\partner-web-master"/>
+			<item value="C:\Users\qysx3\Desktop\partner-java-master\partner-java-master"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

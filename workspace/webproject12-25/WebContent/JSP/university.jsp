@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>高校信息</title>
+		<link href="../CSS/university.css" rel="stylesheet" type="text/css" />
+<script src="../JS/scoresearch.js"></script>
+</head>
+
+<body>
+	<div class="top">
+		<img src="../project/logo.jpg">
+	</div>
+	<div class="container">
+		<ul class="menu">
+			<li><a href="index.jsp">网站首页</a></li>
+			<li><a href="university.jsp">高校信息</a></li>
+			<li><a href="introduce.jsp">政策解读</a></li>
+			<li><a href="scoresearch.jsp">分数查询</a></li>
+			<li><a href="evaluation.jsp">选科评测</a></li>
+			<li><a href="vip.jsp">VIP服务</a></li>
+				<li><a href="login.jsp">登录界面</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="left" style="background-color: #0abde3;">
+			<h2>菜单</h2>
+			<input type="text" id="mySearch" onkeyup="myFunction()"
+				placeholder="请输入大学名称" title="请输入">
+			<ul id="myMenu">
+				<li><a href="university/dhuin.html">东华大学</a></li>
+				<li><a href="university/smcfuin.html">复旦大学上海医学院</a></li>
+				<li><a href="university/ecnuin.html">华东师范大学</a></li>
+				<li><a href="university/ecustin.html">华东理工大学</a></li>
+				<li><a href="university/suepin.html">上海电力学院</a></li>
+				<li><a href="university/sdjuin.html">上海电机学院</a></li>
+				<li><a href="university/suibein.html">上海对外经贸大学</a></li>
+				<li><a href="university/fduin.html">复旦大学</a></li>
+				<li><a href="university/sjtuin.html">上海交通大学</a></li>
+				<li><a href="university/shuin.html">上海大学</a></li>
+				<li><a href="university/sbsin.html">上海商学院</a></li>
+				<li><a href="university/shouin.html">上海海洋大学</a></li>
+				<li><a href="university/smuin.html">上海海事大学</a></li>
+				<li><a href="university/tjuin.html">同济大学</a></li>
+				<li><a href="university/tsmmuin.html">中国人民解放军海军军医大学</a></li>
+				<li><a href="#">......</a></li>
+			</ul>
+		</div>
+</div>
+</body>
+</html>
