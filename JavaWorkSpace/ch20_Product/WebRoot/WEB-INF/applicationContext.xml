@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 定义数据源Bean -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 数据库驱动 -->
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<!-- 数据库连接URL -->
+		<property name="url">
+			<value>jdbc:mysql://localhost/javaweb</value>
+		</property>
+		<!-- 数据库用户名-->
+		<property name="username">
+			<value>root</value>
+		</property>
+		<!-- 数据库密码 -->
+		<property name="password">
+			<value>admin</value>
+		</property>
+	</bean>
+	
+	<!-- 定义SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 指定数据源 -->
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 指定数据库方言 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<!-- 指定映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/javaweb/po/Product.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 定义hibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
+	<!-- 配置DAO组件 -->
+	<bean id="productDao" class="com.javaweb.dao.ProductDaoImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate"/>
+		</property>
+	</bean>
+	
+	<!-- 配置业务逻辑组件 -->
+	<bean id="productService" class="com.javaweb.service.ProductServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="dao" ref="productDao"></property>
+	</bean>
+	
+	<!-- 创建ShowAllActon实例 -->
+	<bean id="showAllAction" class="com.javaweb.action.ShowAllAction">
+		<property name="ps" ref="productService"></property>
+	</bean>
+	
+	<!-- 创建AddAction实例 -->
+	<bean id="addAction" class="com.javaweb.action.AddAction">
+		<property name="ps" ref="productService"></property>
+	</bean>
+	
+	<!-- 创建DeleteAction实例 -->
+	<bean id="deleteAction" class="com.javaweb.action.DeleteAction">
+		<property name="ps" ref="productService"></property>
+	</bean>
+	
+	<!-- 创建UpdateAction实例 -->
+	<bean id="updateAction" class="com.javaweb.action.UpdateAction">
+		<property name="ps" ref="productService"></property>
+	</bean>
+	
+</beans>

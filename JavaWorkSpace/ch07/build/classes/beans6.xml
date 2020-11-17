@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <!-- 配置customerTarget Bean，id为唯一标识，class用来指定类 -->
+    <bean id="customerTarget" class="com.ishang.afterAdvice.Customer">
+	    <property name="name"><value>张三</value> </property>
+    </bean>
+    <!-- 配置goodbyeAdvice Bean，id为唯一标识，class用来指定类 -->
+    <bean id="goodbyeAdvice" class="com.ishang.afterAdvice.Goodbye"></bean>
+    <!-- 配置customer Bean，id为唯一标识，class用来指定类 -->
+    <bean id="customer" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 通知列表 -->
+        <property name="interceptorNames">
+            <list><value>goodbyeAdvice</value></list>
+        </property>
+        <!-- 被通知对象 -->
+        <property name="target"><ref bean="customerTarget"/></property>
+    </bean>
+</beans>

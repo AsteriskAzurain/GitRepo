@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 创建Student实例，并设置其name属性值 -->
+	<bean id="student" class="com.ishang.demo02.Student">
+		<property name="name">
+			<value>小强</value>
+		</property>
+	</bean>
+	
+	<!-- 创建Teacher实例，并设置其name属性值 -->
+	<bean id="teacher" class="com.ishang.demo02.Teacher">
+		<property name="name">
+			<value>张老师</value>
+		</property>
+	</bean>
+</beans>

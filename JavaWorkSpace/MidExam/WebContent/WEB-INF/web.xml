@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>MidExam</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- ch08_01 -->
+  <servlet>
+  	<servlet-name>checkuser</servlet-name>
+  	<servlet-class>ch0801.controller.CheckUser</servlet-class>
+  </servlet> 
+  <servlet-mapping>
+  	<servlet-name>checkuser</servlet-name>
+  	<url-pattern>/checkuser1</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ch08_02 -->
+    <servlet>
+  	<servlet-name>registCheck</servlet-name>
+  	<servlet-class>ch0802.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>registCheck</servlet-name>
+  	<url-pattern>/registCheck</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ch04 -->
+  <servlet>
+  <servlet-name>book</servlet-name>
+  <servlet-class>ch04.controller.BookAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>book</servlet-name>
+  <url-pattern>/book</url-pattern>
+  </servlet-mapping>
+</web-app>

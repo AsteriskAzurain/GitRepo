@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>homework-2 09/19</title>
+	
+</head>
+
+<body>5秒后自动跳转<div id="text"></div>
+	<script language="javascript">
+		
+		
+		function ST()
+		{
+			var dt=new Date();
+			var box=document.getElementById("text");
+			//var str=box.innerHTML;
+			box.innerHTML="";
+			y=dt.getFullYear();m=dt.getMonth()+1;d=dt.getDay();
+			h=dt.getHours();mi=dt.getMinutes();s=dt.getSeconds();
+			s1=y+"/"+m+"/"+d;
+			s2=h+":"+mi+":"+s;
+			if(h>6&&h<=12)
+				s3="早上好";
+			else if(h>12&&h<=18)
+				s3="下午好";
+			else if(h>18&&h<24||h==0)
+				s3="晚上好";
+			else
+				s3="凌晨好";
+			str=s1+"<br>"+s2+"&nbsp;&nbsp;"+s3;
+			document.getElementById("text").innerHTML=str;
+		};
+		//setTimeout('ST()',1000);
+		setInterval("ST()",1000);
+		
+	</script>
+	<!--<form name="time">
+	<input type="button" value="取消跳转"></form>-->
+	
+	<meta http-equiv="refresh" content="5;URL=http://www.163.com">
+</body>
+</html>

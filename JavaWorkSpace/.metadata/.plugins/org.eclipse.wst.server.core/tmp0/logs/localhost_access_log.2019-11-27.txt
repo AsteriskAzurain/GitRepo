@@ -1,0 +1,15 @@
+127.0.0.1 - - [27/Nov/2019:09:36:05 +0800] "GET / HTTP/1.1" 404 1068
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:36:08 +0800] "GET /midexam1/ch08/xt2/login.jsp HTTP/1.1" 200 2911
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:36:34 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:36:41 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:36:50 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:36:57 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:05 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:13 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:21 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:28 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:37 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:44 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 24
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:37:52 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 19
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:09:38:00 +0800] "POST /midexam1/registCheck HTTP/1.1" 200 19
+127.0.0.1 - - [27/Nov/2019:11:09:45 +0800] "GET / HTTP/1.1" 404 1068

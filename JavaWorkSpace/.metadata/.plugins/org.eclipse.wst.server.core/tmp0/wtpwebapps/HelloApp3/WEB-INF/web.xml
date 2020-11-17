@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>HelloApp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_01.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_02.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_03.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_04.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_05.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_06.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_07.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_08.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_09.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_10.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_11.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_12.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_13.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_14.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_15.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_17.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_18_buy1.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_18_buy2.jsp</welcome-file>
+    <welcome-file>/jsp/ch03_18_display.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_01.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_02.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_03.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_04.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_05.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_06.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_07.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_08.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_09.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_10.jsp</welcome-file>
+    <welcome-file>/jsp/ch08_11.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>book</param-name>
+    <param-value>Java Web程序设计</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>query</servlet-name>
+    <servlet-class>com.ishang.controller.StudentController</servlet-class>
+  </servlet>
+  <servlet-mapping>	
+  	<servlet-name>query</servlet-name>
+    <url-pattern>/query</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>formcheck</servlet-name>
+    <servlet-class>com.ishang.controller.FormCheck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>formcheck</servlet-name>
+    <url-pattern>/formcheck</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>list</servlet-name>
+  	<servlet-class>com.ishang.controller.ListShow</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>list</servlet-name>
+    <url-pattern>/list</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>searchsuggest</servlet-name>
+  	<servlet-class>com.ishang.controller.SearchSuggest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>searchsuggest</servlet-name>
+    <url-pattern>/searchsuggest</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>

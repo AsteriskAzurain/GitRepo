@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 创建Student实例，并设置其name属性值 -->
+	<bean id="student" class="com.ishang.demo02.Student">
+		<property name="name"> <value>小强</value> </property>
+	</bean>
+	
+	<!-- 通过构造函数注入 -->
+	<bean id="name" class="java.lang.String">
+		<constructor-arg> <value>张老师</value></constructor-arg>
+	</bean>
+	
+	<!-- 创建Teacher实例，通过构造函数设置其name和student属性值
+	Spring提供了5中自动装配模式：
+	no	：这是默认设置，意味着它没有使用自动装配模式。你应该显示的使用bean引用来连接
+	byName ：由属性名自动装配。Spring 容器看到bean采用了自动装配byName模式(autowire="byName"),然后根据它的属性在Spring 容器中寻找与属性名相同bean进行关联
+	byType ：由属性的数据类型自动装配。Spring容器看到bean采用了自动装配的byType模式(autowire="byType"),然后根据属性类型在Spring容器中寻找与属性类型相同bean进行关联。如果存在不止一个这样的bean，将抛出异常。
+	constructor ：	类似于 byType，但该类型适用于构造函数参数类型。如果在容器中没有一个构造函数参数类型的 bean，则一个致命错误将会发生
+	autodetect	： Spring首先尝试通过 constructor 使用自动装配来连接，如果它不执行，Spring 尝试通过 byType 来自动装配
+	-->
+	<bean id="teacher" class="com.ishang.demo04.Teacher" autowire="constructor">
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="J2EE_EXPORT_OVERWRITE" value="false"/>
+	<item key="J2EE_EXPORT_SOURCE" value="true"/>
+	<list key="J2EE_IMPORT_null">
+		<item value="M:\ssm.war"/>
+		<item value="M:\SpringPj.war"/>
+		<item value="M:\ch07.war"/>
+		<item value="N:\Java Web\MidExam\18102040208-方秉伟.war"/>
+		<item value="C:\Users\qysx3\3D Objects\fbw.war"/>
+		<item value="N:\Java Web\TestServlet.war"/>
+	</list>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="NULL_RUNTIME"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="C:\Users\qysx3\Desktop\ssh.war"/>
+		<item value="C:\Users\qysx3\Desktop\hw1126.war"/>
+		<item value="N:\Java Web\hw04\ch06Servlet.war"/>
+		<item value="C:\Users\qysx3\Desktop\fbw02.war"/>
+		<item value="C:\Users\qysx3\Desktop\fbw01.war"/>
+		<item value="N:\Java Web\MidExam_1.war"/>
+	</list>
+	<list key="J2EE_IMPORT_APP_CLIENT">
+		<item value="N:\1024.jar"/>
+	</list>
+</section>

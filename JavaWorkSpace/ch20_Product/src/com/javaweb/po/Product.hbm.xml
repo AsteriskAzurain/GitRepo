@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 每个class对应一个持久化对象 -->
+	<class name="com.javaweb.po.Product">
+		<!-- id元素用来定义主键标识,并指定主键生成策略 -->
+		<id name="id">
+			<generator class="assigned"></generator>
+		</id>
+		
+		<!-- 定义其他属性 -->
+		<property name="name"></property>
+		<property name="price"></property>
+	</class>	
+</hibernate-mapping>
